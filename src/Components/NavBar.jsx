@@ -39,11 +39,11 @@ const NavBar = (props) => {
               <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="home" size={30} color='#FAFAFA' />Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#"><MaterialIcon icon="people" size={30} color='#FAFAFA' />My Network</NavLink>
+              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="people" size={30} color='#FAFAFA' />My Network</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
+            <UncontrolledDropdown className="menu" nav inNavbar>
               <DropdownToggle nav caret>
-              <MaterialIcon icon="account_box" size={30} color='#FAFAFA' />
+              <MaterialIcon id="icon" icon="account_box" size={30} color='#FAFAFA' />
                 Me
               </DropdownToggle>
               <DropdownMenu right>
