@@ -10,8 +10,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavbarText
+  DropdownItem
+  
 } from 'reactstrap';
 
 const NavBar = (props) => {
