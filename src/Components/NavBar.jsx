@@ -10,9 +10,16 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Input,
+  Container,
+  Row,
+  Col
   
 } from 'reactstrap';
+import Logo from './logo.png';
+import '../index.css';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,37 +28,42 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar color="dark" dark expand="md" className="fixed-top">
+        <Container>
+        <NavbarBrand href="/"><img src={Logo} alt="Logo" width="40px" /></NavbarBrand>
+        <Input type="text" id="search" onKeyUp="handleSearch" placeholder="Search..." className="col-xs-3 mr-5" />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto ml-5" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="home" size={30} color='#FAFAFA' />Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="#"><MaterialIcon icon="people" size={30} color='#FAFAFA' />My Network</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+              <MaterialIcon icon="account_box" size={30} color='#FAFAFA' />
+                Me
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Option 1
+                  ACCOUNT
                 </DropdownItem>
                 <DropdownItem>
-                  Option 2
+                  NEED HELP?
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  Reset
+                  MANAGE ACCOUNT
+                  <hr />
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
           
         </Collapse>
+        </Container>
       </Navbar>
     </div>
   );
