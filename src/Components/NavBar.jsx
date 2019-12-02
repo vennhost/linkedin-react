@@ -11,10 +11,12 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Input
+  Input,
+  Container
   
 } from 'reactstrap';
-import Logo from './logo.png'
+import Logo from './logo.png';
+import '../index.css'
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,38 +25,41 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/"><img src={Logo} alt="Logo" width="30px" /></NavbarBrand>
-        <Input type="text" id="search" onKeyUp="handleSearch" />
+      <Navbar color="dark" dark expand="md" className="fixed-top">
+        <Container>
+        <NavbarBrand href="/"><img src={Logo} alt="Logo" width="40px" /></NavbarBrand>
+        <Input type="text" id="search" onKeyUp="handleSearch" placeholder="Search..." className="col-xs-3 mr-5" />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto ml-5" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/components/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="https://github.com/reactstrap/reactstrap">My Network</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                Me
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Option 1
+                  ACCOUNT
                 </DropdownItem>
                 <DropdownItem>
-                  Option 2
+                  NEED HELP?
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  Reset
+                  MANAGE ACCOUNT
+                  <hr />
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
           
         </Collapse>
+        </Container>
       </Navbar>
     </div>
   );
