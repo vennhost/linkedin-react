@@ -20,9 +20,11 @@ code {
 
 .menu {
   position: relative;
+  display: inline-block;
 } 
 
 .menu #icon {
-  /* position: relative; */
-  padding-bottom: 10px;
+ /*  position: absolute; */
+  margin-left: 2px;
+  display: block;
 }
