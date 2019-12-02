@@ -10,9 +10,11 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Input
   
 } from 'reactstrap';
+import Logo from './logo.png'
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +23,9 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar color="dark" dark expand="md">
+        <NavbarBrand href="/"><img src={Logo} alt="Logo" width="30px" /></NavbarBrand>
+        <Input type="text" id="search" onKeyUp="handleSearch" />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
