@@ -12,11 +12,14 @@ import {
   DropdownMenu,
   DropdownItem,
   Input,
-  Container
+  Container,
+  Row,
+  Col
   
 } from 'reactstrap';
 import Logo from './logo.png';
-import '../index.css'
+import '../index.css';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,13 +36,14 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto ml-5" navbar>
             <NavItem>
-              <NavLink href="/components/">Home</NavLink>
+              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="home" size={30} color='#FAFAFA' />Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">My Network</NavLink>
+              <NavLink href="#"><MaterialIcon icon="people" size={30} color='#FAFAFA' />My Network</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
+              <MaterialIcon icon="account_box" size={30} color='#FAFAFA' />
                 Me
               </DropdownToggle>
               <DropdownMenu right>

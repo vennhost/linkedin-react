@@ -17,3 +17,12 @@ code {
   margin-right: 10 !important;
   padding-right: auto;
 }
+
+.menu {
+  position: relative;
+} 
+
+.menu #icon {
+  /* position: relative; */
+  padding-bottom: 10px;
+}
