@@ -10,8 +10,9 @@ class Profile extends React.Component {
         return ( 
             <div>
 {this.state.profile?
+    // <About aboutUs={this.state.profile.bio}></About>
    <> <ProfileHeading profile={this.state.profile}></ProfileHeading>
-    <About aboutUs={this.state.profile.bio}></About></> :<h2>This profile is loading</h2>
+    </> :<h2>This profile is loading</h2>
 }
             </div>
          );
