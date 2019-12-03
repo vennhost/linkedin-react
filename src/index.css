@@ -135,4 +135,7 @@ img.profile-photo{
 .logo {
   flex: 0 0 auto;
   margin-right: 12px;
+img{
+  margin-top: -63px;
+  height:200px;
 }
