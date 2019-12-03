@@ -12,19 +12,7 @@ code {
     monospace;
 }
 
-.form-control {
-  width: 200px;
-  margin-right: 10 !important;
-  padding-right: auto;
-}
-
-.menu {
-  position: relative;
-  display: inline-block;
-} 
-
-.menu #icon {
- /*  position: absolute; */
-  margin-left: 2px;
-  display: block;
+img{
+  margin-top: -63px;
+  height:200px;
 }
