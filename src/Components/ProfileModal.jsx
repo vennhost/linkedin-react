@@ -33,7 +33,7 @@ class ProfileModal extends React.Component {
         <Col md={6}>
           <FormGroup>
             <Label for="firstName">First Name</Label>
-            <Input type="text"  id="firstName"  />
+            <Input type="text"  id="firstName" />
           </FormGroup>
         </Col>
         <Col md={6}>
