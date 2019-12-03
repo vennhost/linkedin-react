@@ -36,14 +36,14 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto ml-5" navbar>
             <NavItem>
-              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="home" size={30} color='#FAFAFA' />Home</NavLink>
+              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="home" size={20} color='#FAFAFA' />Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="people" size={30} color='#FAFAFA' />My Network</NavLink>
+              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="people" size={20} color='#FAFAFA' />My Network</NavLink>
             </NavItem>
             <UncontrolledDropdown className="menu" nav inNavbar>
               <DropdownToggle nav caret>
-              <MaterialIcon id="icon" icon="account_box" size={30} color='#FAFAFA' />
+              <MaterialIcon id="icon" icon="account_box" size={20} color='#FAFAFA' />
                 Me
               </DropdownToggle>
               <DropdownMenu right>
