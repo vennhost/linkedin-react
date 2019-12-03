@@ -21,8 +21,6 @@ import Logo from './logo.png';
 import '../index.css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);

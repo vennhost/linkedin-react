@@ -1,6 +1,8 @@
 import React from 'react';
 import {Container, Card, CardImg, CardTitle, Row, Col, CardBody, CardText, CardSubtitle } from 'reactstrap';
-import '../index.css'
+import '../index.css';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
 
 
 class Experience extends React.Component {
@@ -11,8 +13,9 @@ class Experience extends React.Component {
         return ( 
             <Container>
             <div className="experience">
-                <div><h3>Experience</h3></div>
-
+                      
+                    <div className="row"><h3 className="col-10 title">Experience</h3><div className="col-2"><MaterialIcon id="plus" icon="add" size={50} /></div></div>
+                
                 {this.state.exp.map((item, index) => 
                     
                     <Card key={index} className="card mb-3">
@@ -25,8 +28,10 @@ class Experience extends React.Component {
                                 <CardTitle>{item.role}</CardTitle>
                                 <CardSubtitle className="card-text">{item.company}</CardSubtitle>
                                 <CardText className="card-text"><small className="text-muted">{item.startDate} - {item.endDate}</small></CardText>
+                                <hr />
                             </CardBody>
                             </div>
+                            
                         </Row>
                         </Card>
                     
