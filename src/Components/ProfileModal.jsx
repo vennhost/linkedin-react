@@ -3,7 +3,15 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 class ProfileModal extends React.Component {
-    state = {  }
+    state = { 
+      modal:false
+     }
+
+     modalClose(){
+       this.setState({
+         modal:false
+       })
+     }
     render() { 
         return ( 
             <div>
@@ -15,7 +23,7 @@ class ProfileModal extends React.Component {
         </ModalBody>
         <ModalFooter>
           <Button color="primary" >Save</Button>{' '}
-          <Button color="secondary">Cancel</Button>
+          <Button color="secondary" onClick={()=>this.modalClose()}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </div>
