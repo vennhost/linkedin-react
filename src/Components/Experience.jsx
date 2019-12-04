@@ -3,6 +3,7 @@ import {Container, Card, CardImg, CardTitle, Row, Col, CardBody, CardText, CardS
 import '../index.css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import ExpModal from './ExpModal'
+import Remove from './Delete.jsx'
 
 
 
@@ -10,6 +11,7 @@ class Experience extends React.Component {
     state = { 
         experience: [],
         modalOpen: false
+        
      }
     render() { 
         return ( 
@@ -29,7 +31,7 @@ class Experience extends React.Component {
                             <div className="col-md-8">
                             <CardBody className="card-body">
                                 <Row><CardTitle className="col-10">{item.role}</CardTitle> <Col><MaterialIcon id="plus" icon="create" size={30} /></Col></Row>
-                                <Row><CardSubtitle className="card-text col-10">{item.company}</CardSubtitle><Col><MaterialIcon id="plus" icon="delete" size={30} /></Col></Row>
+                                <Row><CardSubtitle className="card-text col-10">{item.company}</CardSubtitle><Col><Remove /></Col></Row>
                                 <CardText className="card-text"><small className="text-muted">{item.startDate} - {item.endDate}</small></CardText>
                                 <hr />
                             </CardBody>
@@ -52,6 +54,7 @@ class Experience extends React.Component {
         this.setState({
             modalOpen: false,
             experience: experience
+           
         })
     }
 
@@ -63,12 +66,15 @@ class Experience extends React.Component {
         })
         let experience = await res.json();
         console.log(experience)
+        
 
         this.setState({
             experience: experience
         })
 
     }
+
+    
 }
  
 export default Experience;
