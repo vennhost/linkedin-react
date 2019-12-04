@@ -39,6 +39,7 @@ const NavBar = (props) => {
 // 4) make this list visible only when the user searchs
 // 5) filter the ist for the value into the search abr
 
+
   return (
     <div>
       <Navbar color="dark" dark expand="md" className="fixed-top" id="main-nav">
