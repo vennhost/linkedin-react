@@ -11,9 +11,17 @@ class Remove extends React.Component {
     render() {
         return(
             <div>
-                <MaterialIcon id="plus" icon="delete" size={30} onClick={() => this.remove()} />
+                <MaterialIcon id="plus" icon="delete" size={30} onClick={() => this.remove()} _id={this.item._id} parentUpdate={this.parentUpdate} />
             </div>
         )
+    }
+
+    parentUpdate = (experience) => {
+        this.setState({
+            
+            experience: experience
+           
+        })
     }
 
     remove = async (experience, _id) => {
@@ -30,11 +38,9 @@ class Remove extends React.Component {
   if (res.ok) {
             return await res.json()
         }
-        console.log(Remove)
+       
 
-        this.setState ({
-            experience: experience
-        })
+       
         
     }
 }
