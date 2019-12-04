@@ -91,5 +91,22 @@ class ProfileModal extends React.Component {
     </div>
          );
     }
+
+    componentDidMount=async ()=>{
+      let response=await fetch(" https://strive-school-testing-apis.herokuapp.com/api/profile/me",{
+          headers:{
+              "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
+          }
+      })
+      let prof=await response.json()
+      this.setState({
+        name: prof.name,
+        surname: prof.surname,
+        email: prof.email,
+        bio: prof.bio,
+        area: prof.area,
+        title:prof.title
+      })
+  }
 }
 export default ProfileModal;
