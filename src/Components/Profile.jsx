@@ -19,7 +19,7 @@ class Profile extends React.Component {
    <> <Col md="8">
    <ProfileHeading profile={this.state.profile}></ProfileHeading></Col>
    <Col md="4" className="my-4">
-   <Button onClick={()=>this.setState({modalOpen:true})}><MdEdit />?</Button>
+   <Button color="primary" onClick={()=>this.setState({modalOpen:true})}><MdEdit />?Edit Profile</Button>
    <ProfileModal profile={this.state.profile} open={this.state.modalOpen}></ProfileModal></Col>
     </> :<h2>This profile is loading</h2>
 }</Row>

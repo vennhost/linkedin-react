@@ -5,7 +5,7 @@ class ProfileHeading extends React.Component {
     state = {  }
     render() { 
         return ( 
-            <div className="my-5">
+             <div className="my-5">
                 {/* <img className="profile-photo" src={this.props.profile.image} alt="my pic"/> */}
             <div>
                 <img className="profile-photo" src={this.props.profile.image}  width="30%" alt="my pic"/>
