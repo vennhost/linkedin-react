@@ -36,8 +36,8 @@ class ExpModal extends React.Component {
         "description": document.querySelector("#description").value,
         "image": document.querySelector("#image").value
   };
-      let updatedExp = await PostExperience(experience)
-      this.props.parentUpdate(updatedExp)
+      await PostExperience(experience)
+      
   }
 
        /*  role: "",
