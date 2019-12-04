@@ -13,7 +13,7 @@ class Experience extends React.Component {
         return ( 
             <Container>
             <div className="experience">
-                      
+                 <Container>  
                     <div className="row"><h3 className="col-10 title">Experience</h3><div className="col-2"><MaterialIcon id="plus" icon="add" size={50} /></div></div>
                 
                 {this.state.exp.map((item, index) => 
@@ -36,7 +36,7 @@ class Experience extends React.Component {
                         </Card>
                     
                     /* <div key={index}><img src={item.image} width="60px" /></div> */)}
-            
+                    </Container>   
             </div>
             </Container>
          );
