@@ -1,6 +1,6 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Row,Col,Form,Label,Input,FormGroup } from 'reactstrap';
-import ProfileUpdate from "./ProfileUpdateApi";
+import PostExperience from "./PostExperience";
 
 class ExpModal extends React.Component {
   
@@ -24,23 +24,20 @@ class ExpModal extends React.Component {
        })
      }
 
-    // closeModal(e) {
-    //   if(e.target.id === "Modal") {
-    //     this.setState({show: false})
-    //   }
-    // }
+ 
 
      postExperience = async () => {
       let experience = {
-        "name": document.querySelector("#name").value,
-        "surname": document.querySelector("#surname").value,
-        "email": document.querySelector("#email").value,
-        "bio": document.querySelector("#bio").value,
+        "role": document.querySelector("#role").value,
+        "company": document.querySelector("#company").value,
+        "startDate": document.querySelector("#startDate").value,
+        "endDate": document.querySelector("#endDate").value,
         "area": document.querySelector("#area").value,
-        "title": document.querySelector("#title").value
+        "description": document.querySelector("#description").value,
+        "image": document.querySelector("#image").value
   };
-      let updatedExp = await ProfileUpdate(experience)
-      this.props.parentUpdate(updatedProfile)
+      let updatedExp = await PostExperience(experience)
+      this.props.parentUpdate(updatedExp)
   }
 
        /*  role: "",
@@ -56,44 +53,49 @@ class ExpModal extends React.Component {
        return ( 
             <div>
       <Modal isOpen={this.props.open} >
-        <ModalHeader><h3>Edit intro</h3></ModalHeader>
+        <ModalHeader><h3>Experiences</h3></ModalHeader>
         <ModalBody>
         <Form>
           <Row>
             <Col>
               <FormGroup>
                 <Label for="role">Role</Label>
-                    <Input onChange={(val) => this.setState({name: val.target.value})} value={this.state.role} type="text" id="role" placeholder="Role..." />
+                    <Input onChange={(val) => this.setState({role: val.target.value})} value={this.state.role} type="text" id="role" placeholder="Role..." />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup>
                 <Label for="company" >Company Name</Label>
-                    <Input onChange={(val) => this.setState({surname: val.target.value})} value={this.state.company} type="text" id="surname" placeholder="Company" />
+                    <Input onChange={(val) => this.setState({company: val.target.value})} value={this.state.company} type="text" id="company" placeholder="Company" />
               </FormGroup>
             </Col>
           </Row>
               <FormGroup>
                 <Label for="startDate">Start Date</Label>
-                    <Input onChange={(val) => this.setState({email: val.target.value})} value={this.state.startDate} type="date" id="startDate" placeholder="with a placeholder" />
+                    <Input onChange={(val) => this.setState({startDate: val.target.value})} value={this.state.startDate} type="date" id="startDate"  />
               </FormGroup>
               <FormGroup>
-                <Label for="exampleAddress">Bio</Label>
-                     <Input onChange={(val) => this.setState({bio: val.target.value})} value={this.state.bio} type="text" id="bio" placeholder="Bio" />
+                <Label for="endDate">End Date</Label>
+                     <Input onChange={(val) => this.setState({endDate: val.target.value})} value={this.state.endDate} type="date" id="endDate"  />
               </FormGroup>
               <FormGroup>
-                <Label for="examplePosition">Current Position</Label>
-                     <Input onChange={(val) => this.setState({title: val.target.value})} value={this.state.title} type="text" id="title" placeholder="Title" />
+                <Label for="description">Description</Label>
+                     <Input onChange={(val) => this.setState({description: val.target.value})} value={this.state.description} type="text" id="description" placeholder="Describe your job" />
               </FormGroup>
               <FormGroup>
-                 <Label for="exampleCity">Area</Label>
-                     <Input onChange={(val) => this.setState({area: val.target.value})} value={this.state.area} type="text"  id="area" placeholder="City"/>
+                 <Label for="area">Location</Label>
+                     <Input onChange={(val) => this.setState({area: val.target.value})} value={this.state.area} type="text"  id="area" placeholder="area"/>
+              </FormGroup>
+
+              <FormGroup>
+                 <Label for="image">Company Logo</Label>
+                     <Input onChange={(val) => this.setState({image: val.target.value})} value={this.state.image} type="url"  id="image" placeholder="Image URL"/>
               </FormGroup>
           
       </Form> 
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={()=>this.updateProfile()} >Save</Button>{' '}
+          <Button color="primary" onClick={()=>this.postExperience()} >Post</Button>{' '}
           <Button color="secondary" onClick={this.modalClose}>Cancel</Button>
         </ModalFooter>
       </Modal>

@@ -2,21 +2,24 @@ import React from 'react';
 import {Container, Card, CardImg, CardTitle, Row, Col, CardBody, CardText, CardSubtitle } from 'reactstrap';
 import '../index.css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import ExpModal from './ExpModal'
 
 
 
 class Experience extends React.Component {
     state = { 
-        exp: []
+        experience: [],
+        modalOpen: false
      }
     render() { 
         return ( 
             <Container>
             <div className="experience">
                  <Container>  
-                    <div className="row"><h3 className="col-10 title">Experience</h3><div className="col-2"><MaterialIcon id="plus" icon="add" size={50} /></div></div>
+                    <div className="row"><h3 className="col-10 title">Experience</h3><div className="col-2"><MaterialIcon id="plus" icon="add" size={50} onClick={()=>this.setState({modalOpen:true})} /><ExpModal experience={this.state.experience} parentUpdate={this.parentUpdate} open={this.state.modalOpen}></ExpModal></div></div>
+                    
                 
-                {this.state.exp.map((item, index) => 
+                {this.state.experience && this.state.experience.map((item, index) => 
                     
                     <Card key={index} className="card mb-3">
                         <Row className="row no-gutters">
@@ -33,7 +36,9 @@ class Experience extends React.Component {
                             </div>
                             
                         </Row>
+                        
                         </Card>
+                        
                     
                     /* <div key={index}><img src={item.image} width="60px" /></div> */)}
                     </Container>   
@@ -42,17 +47,25 @@ class Experience extends React.Component {
          );
     }
 
+
+    parentUpdate = (experience) => {
+        this.setState({
+            modalOpen: false,
+            experience: experience
+        })
+    }
+
     componentDidMount = async () => {
         let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user4/experiences",{
             headers:{
                 "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
             }
         })
-        let exp = await res.json();
-        console.log(exp)
+        let experience = await res.json();
+        console.log(experience)
 
         this.setState({
-            exp: exp
+            experience: experience
         })
 
     }
