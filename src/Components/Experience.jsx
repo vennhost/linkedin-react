@@ -56,7 +56,7 @@ class Experience extends React.Component {
     }
 
     componentDidMount = async () => {
-        let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user4/experiences",{
+        let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user20/experiences",{
             headers:{
                 "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
             }
