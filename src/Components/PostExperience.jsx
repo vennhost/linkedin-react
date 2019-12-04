@@ -19,14 +19,20 @@ class PostExperience extends React.Component {
          );
     }
 
-    componentWillMount = async () => {
+    componentWillMount = async (experience) => {
         let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user4/experiences",{
             headers:{
-                "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
+                "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=",
+                "Content-type": "application/json"
             },
             method: "POST",
-            body: application/json()
+            body: JSON.stringify(experience)
+            
         })
+
+        if (res.ok) {
+            return await res.json()
+        }
         
     }
 }

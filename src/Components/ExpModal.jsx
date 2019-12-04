@@ -2,24 +2,25 @@ import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Row,Col,Form,Label,Input,FormGroup } from 'reactstrap';
 import ProfileUpdate from "./ProfileUpdateApi";
 
-class ProfileModal extends React.Component {
+class ExpModal extends React.Component {
   
     state = { 
-        name: "",
-        surname: "",
-        title: "",
-        bio: "",
-        email:"",
+        role: "",
+        company: "",
+        startDate: "",
+        endDate: "",
+        description:"",
         area: "",
         image: "",
-        show:false
+
+        modalOpen: false
      }
 
 
     
      modalClose=()=>{
        this.setState({
-         show:false
+         modalOpen: false
        })
      }
 
@@ -29,8 +30,8 @@ class ProfileModal extends React.Component {
     //   }
     // }
 
-     updateProfile = async () => {
-      let profile = {
+     postExperience = async () => {
+      let experience = {
         "name": document.querySelector("#name").value,
         "surname": document.querySelector("#surname").value,
         "email": document.querySelector("#email").value,
@@ -38,9 +39,17 @@ class ProfileModal extends React.Component {
         "area": document.querySelector("#area").value,
         "title": document.querySelector("#title").value
   };
-      let updatedProfile = await ProfileUpdate(profile)
+      let updatedExp = await ProfileUpdate(experience)
       this.props.parentUpdate(updatedProfile)
   }
+
+       /*  role: "",
+        company: "",
+        startDate: "",
+        endDate: "",
+        description:"",
+        area: "",
+        image: "", */
 
     render() { 
       
@@ -53,20 +62,20 @@ class ProfileModal extends React.Component {
           <Row>
             <Col>
               <FormGroup>
-                <Label >First Name</Label>
-                    <Input onChange={(val) => this.setState({name: val.target.value})} value={this.state.name} type="text" id="name" placeholder="Name placeholder" />
+                <Label for="role">Role</Label>
+                    <Input onChange={(val) => this.setState({name: val.target.value})} value={this.state.role} type="text" id="role" placeholder="Role..." />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup>
-                <Label >Last Name</Label>
-                    <Input onChange={(val) => this.setState({surname: val.target.value})} value={this.state.surname}type="text" id="surname" placeholder="Name placeholder" />
+                <Label for="company" >Company Name</Label>
+                    <Input onChange={(val) => this.setState({surname: val.target.value})} value={this.state.company} type="text" id="surname" placeholder="Company" />
               </FormGroup>
             </Col>
           </Row>
               <FormGroup>
-                <Label for="exampleEmail">Email</Label>
-                    <Input onChange={(val) => this.setState({email: val.target.value})} value={this.state.email} type="email" id="email" placeholder="with a placeholder" />
+                <Label for="startDate">Start Date</Label>
+                    <Input onChange={(val) => this.setState({email: val.target.value})} value={this.state.startDate} type="date" id="startDate" placeholder="with a placeholder" />
               </FormGroup>
               <FormGroup>
                 <Label for="exampleAddress">Bio</Label>
@@ -92,4 +101,4 @@ class ProfileModal extends React.Component {
          );
     }
 }
-export default ProfileModal;
+export default ExpModal;

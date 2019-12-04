@@ -20,11 +20,18 @@ class Profile extends React.Component {
    <ProfileHeading profile={this.state.profile}></ProfileHeading></Col>
    <Col md="4" className="my-4">
    <Button color="primary" onClick={()=>this.setState({modalOpen:true})}><MdEdit />?Edit Profile</Button>
-   <ProfileModal profile={this.state.profile} open={this.state.modalOpen}></ProfileModal></Col>
+   <ProfileModal profile={this.state.profile} parentUpdate={this.parentUpdate} open={this.state.modalOpen}></ProfileModal></Col>
     </> :<h2>This profile is loading</h2>
 }</Row>
             </div>
          );
+    }
+
+    parentUpdate = (profile) => {
+        this.setState({
+            modalOpen: false,
+            profile: profile
+        })
     }
     componentDidMount=async ()=>{
         let response=await fetch(" https://strive-school-testing-apis.herokuapp.com/api/profile/me",{
