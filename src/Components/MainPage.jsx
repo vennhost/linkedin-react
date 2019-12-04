@@ -15,6 +15,15 @@ class MainPage extends React.Component {
         return ( 
             <>
             <NavBar />
+
+            {/* with react-router-dom
+            you should create some routes  like:
+            - newsfeed
+            - profile
+            etc...
+            
+            In the profile route , you should be able to accept a quesry string parameter
+            sot that if profile/user5, will the get info from user5 etc*/}
             
             <Container className="profile mt-5">
             {/* <Profile></Profile> */}
