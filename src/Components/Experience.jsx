@@ -13,7 +13,7 @@ class Experience extends React.Component {
         return ( 
             <Container>
             <div className="experience">
-                      
+                 <Container>  
                     <div className="row"><h3 className="col-10 title">Experience</h3><div className="col-2"><MaterialIcon id="plus" icon="add" size={50} /></div></div>
                 
                 {this.state.exp.map((item, index) => 
@@ -25,8 +25,8 @@ class Experience extends React.Component {
                             </Col>
                             <div className="col-md-8">
                             <CardBody className="card-body">
-                                <CardTitle>{item.role}</CardTitle>
-                                <CardSubtitle className="card-text">{item.company}</CardSubtitle>
+                                <Row><CardTitle className="col-10">{item.role}</CardTitle> <Col><MaterialIcon id="plus" icon="create" size={30} /></Col></Row>
+                                <Row><CardSubtitle className="card-text col-10">{item.company}</CardSubtitle><Col><MaterialIcon id="plus" icon="delete" size={30} /></Col></Row>
                                 <CardText className="card-text"><small className="text-muted">{item.startDate} - {item.endDate}</small></CardText>
                                 <hr />
                             </CardBody>
@@ -36,7 +36,7 @@ class Experience extends React.Component {
                         </Card>
                     
                     /* <div key={index}><img src={item.image} width="60px" /></div> */)}
-            
+                    </Container>   
             </div>
             </Container>
          );
