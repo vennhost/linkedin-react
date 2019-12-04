@@ -27,7 +27,17 @@ const NavBar = (props) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  
+//   1) get info from:   
+//   let respUser=await fetch(" https://strive-school-testing-apis.herokuapp.com/api/profile/",{
+//     headers:{
+//         "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
+//     }
+// })
+// console.log(await respUser.json())
+// 2) set them in to the state => users
+// 3) create a list of names that depends on this.state.users
+// 4) make this list visible only when the user searchs
+// 5) filter the ist for the value into the search abr
 
   return (
     <div>

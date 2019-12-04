@@ -28,13 +28,16 @@ class Profile extends React.Component {
     }
 
     parentUpdate = (profile) => {
-        this.setState({
-            modalOpen: false,
-            profile: profile
-        })
+        if (profile)
+            this.setState({
+                modalOpen: false,
+                profile: profile
+            })
+        else 
+        this.setState({modalOpen: false})
     }
     componentDidMount=async ()=>{
-        let response=await fetch(" https://strive-school-testing-apis.herokuapp.com/api/profile/me",{
+        let response=await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/me",{
             headers:{
                 "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
             }
