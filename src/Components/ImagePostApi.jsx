@@ -6,7 +6,7 @@ const imagePost = async (img) => {
             body:img,
             headers: {
                 "Authorization": "Basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=" ,
-                "Content-Type": "image/jeg"
+                // "Content-Type": "image/je
             }
             
         })

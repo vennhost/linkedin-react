@@ -15,8 +15,8 @@ this.setState({
 
     fileUploadHandler=async()=>{
         const fd=new FormData();
-        let uploadPic=   fd.append("image",this.state.selectedFile.image)
-        await imagePost(uploadPic)
+        fd.append("profile",this.state.selectedFile)
+        await imagePost(fd)
      }
     render() { 
         return ( 

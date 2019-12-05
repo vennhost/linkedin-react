@@ -25,7 +25,7 @@ class NewsFeed extends React.Component {
             <>
                 <div className="bg info">
                     <Input type="text" value={this.state.currentPost} onChange={(val) => this.setState({currentPost: val.target.value})} placeholder="What's thrilling..." id="post" />
-                    <Button id="share" onClick={() => PostStatus(this.state.currentPost)} className="btn btn-outline-info btn-sm">Share Now</Button>
+                    <Button id="share" onClick={() => PostStatus({ text: this.state.currentPost })} className="btn btn-outline-info btn-sm">Share Now</Button>
                 </div>
                 <div>
                     {this.state.posts.map((post, index) => 
