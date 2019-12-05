@@ -1,4 +1,4 @@
-/* import React from 'react';
+ import React from 'react';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 
@@ -32,4 +32,4 @@ class Remove extends React.Component {
 
 
  
-export default Remove;  */
+export default Remove;  
