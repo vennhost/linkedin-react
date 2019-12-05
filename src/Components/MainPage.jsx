@@ -8,12 +8,17 @@ import NavBar from './NavBar';
 import Profile from './Profile';
 import Banner from './Banner';
 import Experience from './Experience';
+import HomePage from './HomePage'
+import ProfilePage from './ProfilePage'
+
+
 
 class MainPage extends React.Component {
     state = {  }
     render() { 
         return ( 
             <>
+            <Router>
             <NavBar />
 
             {/* with react-router-dom
@@ -25,12 +30,11 @@ class MainPage extends React.Component {
             In the profile route , you should be able to accept a quesry string parameter
             sot that if profile/user5, will the get info from user5 etc*/}
             
-            <Container className="profile mt-5">
-            {/* <Profile></Profile> */}
-            </Container>
-            <Banner></Banner>
-            {/* <Profile></Profile> */}
-            <Experience />
+                <Container>
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="profile" component={ProfilePage} />
+                </Container>
+            </Router>
 
             </>
             

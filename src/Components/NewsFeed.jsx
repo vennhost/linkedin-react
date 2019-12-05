@@ -1,8 +1,10 @@
 import React from 'react';
-import {} from 'reactstrap';
+import {Toast, ToastHeader, ToastBody} from 'reactstrap';
+import ProfileHeading from './ProfileHeading';
 
 
-class NewsFeed extends Component {
+
+class NewsFeed extends React.Component {
     state = { 
         posts: []
      }

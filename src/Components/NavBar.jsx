@@ -20,6 +20,7 @@ import {
 import Logo from './logo.png';
 import '../index.css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import {Link} from 'react-router-dom'
 
 
 const NavBar = (props) => {
@@ -50,10 +51,10 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto ml-5" navbar>
             <NavItem>
-              <NavLink className="menu" href="#"><MaterialIcon icon="home" id="icon" size={20} color='#FAFAFA' /> <span className="nav-name">Home</span></NavLink>
+              <Link className="menu" to="/"><MaterialIcon icon="home" id="icon" size={20} color='#FAFAFA' /> <span className="nav-name">Home</span></Link>
             </NavItem>
             <NavItem>
-              <NavLink className="menu" href="#"><MaterialIcon id="icon" icon="people" size={20} color='#FAFAFA' /> <span className="nav-name">My Network</span></NavLink>
+              <Link className="menu" href="profile"><MaterialIcon id="icon" icon="people" size={20} color='#FAFAFA' /> <span className="nav-name">Profile</span></Link>
             </NavItem>
 
             <NavItem>
