@@ -1,5 +1,6 @@
 import React from "react"
 import '../index.css'
+import FileUpload from "./FileUpload"
 
 class ProfileHeading extends React.Component {
     state = {  }
@@ -18,6 +19,7 @@ class ProfileHeading extends React.Component {
                 <h5>{this.props.profile.area}</h5>
             </div>
             }
+            <FileUpload></FileUpload>
             </div>
             
             </>
