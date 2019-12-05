@@ -3,14 +3,16 @@ import {Container, Card, CardImg, CardTitle, Row, Col, CardBody, CardText, CardS
 import '../index.css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import ExpModal from './ExpModal'
-import Remove from './Delete.jsx'
+
 
 
 
 class Experience extends React.Component {
     state = { 
         experience: [],
-        modalOpen: false
+        modalOpen: false,
+        item: {},
+        selectedExp: {}
         
      }
     render() { 
@@ -30,8 +32,8 @@ class Experience extends React.Component {
                             </Col>
                             <div className="col-md-8">
                             <CardBody className="card-body">
-                                <Row><CardTitle className="col-10">{item.role}</CardTitle> <Col><MaterialIcon id="plus" icon="create" size={30} /></Col></Row>
-                                <Row><CardSubtitle className="card-text col-10">{item.company}</CardSubtitle><Col><Remove /></Col></Row>
+                                <Row><CardTitle className="col-10">{item.role}</CardTitle> <Col><MaterialIcon id="plus" icon="create" size={30} onClick={()=>this.setState({modalOpen:true, selectedExp: {...item}})} /></Col></Row>
+                                <Row><CardSubtitle className="card-text col-10">{item.company}</CardSubtitle><Col><MaterialIcon id="plus" icon="delete" size={30} onClick={() => this.remove(item)} parentUpdate={this.parentUpdate} /></Col></Row>
                                 <CardText className="card-text"><small className="text-muted">{item.startDate} - {item.endDate}</small></CardText>
                                 <hr />
                             </CardBody>
@@ -49,11 +51,18 @@ class Experience extends React.Component {
          );
     }
 
+    updatingExp = (val) => {
+        let currentExp = this.state.selectedExp;
+        currentExp[val.target.name] = val.target.value;
+        this.setState({selectedExp: currentExp})
+    }
+
 
     parentUpdate = (experience) => {
         this.setState({
             modalOpen: false,
-            experience: experience
+            experience: experience,
+            item: {}
            
         })
     }
@@ -72,6 +81,53 @@ class Experience extends React.Component {
             experience: experience
         })
 
+    }
+
+    remove = async (item) => {
+
+        try {
+        let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user20/experiences/" + item._id,{
+            headers:{
+                "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=",
+                "Content-type": "application/json"
+            },
+            method: "DELETE",
+            body: JSON.stringify(item)
+            
+        }) 
+
+  if (res.ok) {
+            return await res.json()
+        }
+    } catch (error) {
+        console.log(error);
+    }
+      
+        
+    }
+
+
+    updateExp = async (item) => {
+
+        try {
+        let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user20/experiences/" + item._id,{
+            headers:{
+                "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=",
+                "Content-type": "application/json"
+            },
+            method: "PUT",
+            body: JSON.stringify(item)
+            
+        }) 
+
+  if (res.ok) {
+            return await res.json()
+        }
+    } catch (error) {
+        console.log(error);
+    }
+      
+        
     }
 
     
