@@ -12,12 +12,12 @@ class NewsFeed extends React.Component {
         return ( 
             <>
                 <div>
-                   <ProfileHeading /> 
+                   <ProfileHeading profile={this.state.profile} /> 
                 </div>
                 <div>
                     {this.state.posts.map((post, index) => 
-                        <div className="p-3 bg-info my-2 rounded">
-                            <Toast key={index}>
+                        <div key={index} className="p-3 bg-info my-2 rounded">
+                            <Toast>
                             <ToastHeader icon="info">
                                 {post.username}
                             </ToastHeader>
