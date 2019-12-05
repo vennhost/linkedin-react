@@ -77,6 +77,8 @@ class Experience extends React.Component {
     }
 
     remove = async (item) => {
+
+        try {
         let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user20/experiences/" + item._id,{
             headers:{
                 "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=",
@@ -90,6 +92,9 @@ class Experience extends React.Component {
   if (res.ok) {
             return await res.json()
         }
+    } catch (error) {
+        console.log(error);
+    }
       
         
     }
