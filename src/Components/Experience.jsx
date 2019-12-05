@@ -11,7 +11,8 @@ class Experience extends React.Component {
     state = { 
         experience: [],
         modalOpen: false,
-        item: {}
+        item: {},
+        selectedExp: {}
         
      }
     render() { 
@@ -31,7 +32,7 @@ class Experience extends React.Component {
                             </Col>
                             <div className="col-md-8">
                             <CardBody className="card-body">
-                                <Row><CardTitle className="col-10">{item.role}</CardTitle> <Col><MaterialIcon id="plus" icon="create" size={30} /></Col></Row>
+                                <Row><CardTitle className="col-10">{item.role}</CardTitle> <Col><MaterialIcon id="plus" icon="create" size={30} onClick={()=>this.setState({modalOpen:true, selectedExp: {...item}})} /></Col></Row>
                                 <Row><CardSubtitle className="card-text col-10">{item.company}</CardSubtitle><Col><MaterialIcon id="plus" icon="delete" size={30} onClick={() => this.remove(item)} parentUpdate={this.parentUpdate} /></Col></Row>
                                 <CardText className="card-text"><small className="text-muted">{item.startDate} - {item.endDate}</small></CardText>
                                 <hr />
@@ -48,6 +49,12 @@ class Experience extends React.Component {
             </div>
             </Container>
          );
+    }
+
+    updatingExp = (val) => {
+        let currentExp = this.state.selectedExp;
+        currentExp[val.target.name] = val.target.value;
+        this.setState({selectedExp: currentExp})
     }
 
 
@@ -85,6 +92,30 @@ class Experience extends React.Component {
                 "Content-type": "application/json"
             },
             method: "DELETE",
+            body: JSON.stringify(item)
+            
+        }) 
+
+  if (res.ok) {
+            return await res.json()
+        }
+    } catch (error) {
+        console.log(error);
+    }
+      
+        
+    }
+
+
+    updateExp = async (item) => {
+
+        try {
+        let res = await fetch("https://strive-school-testing-apis.herokuapp.com/api/profile/user20/experiences/" + item._id,{
+            headers:{
+                "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=",
+                "Content-type": "application/json"
+            },
+            method: "PUT",
             body: JSON.stringify(item)
             
         }) 
