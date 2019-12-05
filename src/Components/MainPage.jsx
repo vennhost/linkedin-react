@@ -25,18 +25,18 @@ class MainPage extends React.Component {
             <>
             <Router>
             <NavBar />
-            <div>
+            <Container>
                 <Row>
-{this.state.profile?
-    // <About aboutUs={this.state.profile.bio}></About>
-   <> <Col md="8">
-   <ProfileHeading profile={this.state.profile}></ProfileHeading></Col>
-   <Col md="4" className="my-4">
-   <Button color="primary" onClick={()=>this.setState({modalOpen:true})}><MdEdit />?Edit Profile</Button>
-   <ProfileModal profile={this.state.profile} parentUpdate={this.parentUpdate} open={this.state.modalOpen}></ProfileModal></Col>
-    </> :<h2>This profile is loading</h2>
-}</Row>
-            </div>
+                        {this.state.profile?
+                            // <About aboutUs={this.state.profile.bio}></About>
+                        <> <Col md="8">
+                        <ProfileHeading profile={this.state.profile}></ProfileHeading></Col>
+                        <Col md="4" className="my-4">
+                        <Button color="primary" onClick={()=>this.setState({modalOpen:true})}><MdEdit />?Edit Profile</Button>
+                        <ProfileModal profile={this.state.profile} parentUpdate={this.parentUpdate} open={this.state.modalOpen}></ProfileModal></Col>
+                            </> :<h2>This profile is loading</h2>
+                        }</Row>
+            </Container>
 
             {/* with react-router-dom
             you should create some routes  like:

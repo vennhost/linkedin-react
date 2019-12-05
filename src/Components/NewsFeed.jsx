@@ -1,19 +1,31 @@
 import React from 'react';
 import {Toast, ToastHeader, ToastBody, Input, Button} from 'reactstrap';
 import ProfileHeading from './ProfileHeading';
+import '../index.css'
+import PostStatus from './PostApi'
 
 
 
 class NewsFeed extends React.Component {
     state = { 
-        posts: []
+        posts: [],
+        currentPost: ""
      }
+
+     /* handleNewPost = async () => {
+        let posts = {
+            "text": this.state.currentPost
+        };
+        await this.PostStatus(posts)
+        
+     } */
+
     render() { 
         return ( 
             <>
-                <div>
-                    <Input type="text" placeholder="What's thrilling..." id="post" />
-                    <Button>Share Now</Button>
+                <div className="bg info">
+                    <Input type="text" value={this.state.currentPost} onChange={(val) => this.setState({currentPost: val.target.value})} placeholder="What's thrilling..." id="post" />
+                    <Button id="share" onClick={() => PostStatus(this.state.currentPost)} className="btn btn-outline-info btn-sm">Share Now</Button>
                 </div>
                 <div>
                     {this.state.posts.map((post, index) => 
@@ -33,8 +45,9 @@ class NewsFeed extends React.Component {
             );
     }
 
+   
     componentDidMount=async ()=>{
-        let response=await fetch("https://strive-school-testing-apis.herokuapp.com/api/posts/",{
+        let response=await fetch("https://striveschool.herokuapp.com/api/posts/",{
             headers:{
                 "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc="
             }
@@ -43,6 +56,22 @@ class NewsFeed extends React.Component {
         this.setState({
             posts: posts
         })
+    }
+
+
+   postStatus = async (posts) => {
+        let response=await fetch("https://striveschool.herokuapp.com/api/posts/",{
+            headers:{
+                "Authorization":"basic dXNlcjIwOlkyY0paMzhVUE1tblBkQVc=",
+                "content-type": "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify(posts)
+           
+        })
+        if (response.ok) {
+            return await response.json()
+        }
     }
 }
  
