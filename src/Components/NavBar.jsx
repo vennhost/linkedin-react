@@ -54,7 +54,7 @@ const NavBar = (props) => {
               <Link className="menu" to="/"><MaterialIcon icon="home" id="icon" size={20} color='#FAFAFA' /> <span className="nav-name">Home</span></Link>
             </NavItem>
             <NavItem>
-              <Link className="menu" href="profile"><MaterialIcon id="icon" icon="people" size={20} color='#FAFAFA' /> <span className="nav-name">Profile</span></Link>
+              <Link className="menu" to="/profile"><MaterialIcon id="icon" icon="people" size={20} color='#FAFAFA' /> <span className="nav-name">Profile</span></Link>
             </NavItem>
 
             <NavItem>

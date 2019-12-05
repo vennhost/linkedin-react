@@ -1,5 +1,5 @@
 import React from 'react';
-import {Toast, ToastHeader, ToastBody} from 'reactstrap';
+import {Toast, ToastHeader, ToastBody, Input, Button} from 'reactstrap';
 import ProfileHeading from './ProfileHeading';
 
 
@@ -12,7 +12,8 @@ class NewsFeed extends React.Component {
         return ( 
             <>
                 <div>
-                   <ProfileHeading profile={this.state.profile} /> 
+                    <Input type="text" placeholder="What's thrilling..." id="post" />
+                    <Button>Share Now</Button>
                 </div>
                 <div>
                     {this.state.posts.map((post, index) => 
