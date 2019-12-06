@@ -1,6 +1,8 @@
 import React from "react"
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter,Row,Col,Form,Label,Input,FormGroup } from 'reactstrap';
 import ProfileUpdate from "./ProfileUpdateApi";
+import FileUpload from "./FileUpload";
+
 
 class ProfileModal extends React.Component {
   
@@ -15,17 +17,7 @@ class ProfileModal extends React.Component {
         show:false
      }
 
-
-    
-     modalClose=()=>{
-       this.setState({
-         show:false
-       })
-     }
-
-    
-
-     updateProfile = async () => {
+      updateProfile = async () => {
       let profile = {
         "name": this.state.name,//document.querySelector("#name").value,
         "surname": this.state.surname, //document.querySelector("#surname").value,
@@ -74,8 +66,13 @@ class ProfileModal extends React.Component {
       </Form> 
         </ModalBody>
         <ModalFooter>
+          
+          {/* <FileUpload></FileUpload> */}
+          
+          
           <Button color="primary" onClick={()=>this.updateProfile()} >Save</Button>{' '}
           <Button color="secondary" onClick={() => this.props.parentUpdate()}>Cancel</Button>
+          
         </ModalFooter>
       </Modal>
     </div>

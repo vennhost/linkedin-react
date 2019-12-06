@@ -25,10 +25,10 @@ class MainPage extends React.Component {
             <>
             <Router>
             <NavBar />
-            <Container>
+            {/* <Container>
                 <Row>
                         {this.state.profile?
-                            // <About aboutUs={this.state.profile.bio}></About>
+                            
                         <> <Col md="8">
                         <ProfileHeading profile={this.state.profile}></ProfileHeading></Col>
                         <Col md="4" className="my-4">
@@ -36,7 +36,7 @@ class MainPage extends React.Component {
                         <ProfileModal profile={this.state.profile} parentUpdate={this.parentUpdate} open={this.state.modalOpen}></ProfileModal></Col>
                             </> :<h2>This profile is loading</h2>
                         }</Row>
-            </Container>
+            </Container> */}
 
             {/* with react-router-dom
             you should create some routes  like:
@@ -49,7 +49,7 @@ class MainPage extends React.Component {
             
                 <Container>
                     <Route path="/" exact component={HomePage} />
-                    <Route path="/profile" component={ProfilePage} />
+                    <Route path="/profile"  component={ProfilePage} />
                 </Container>
             </Router>
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import {} from 'reactstrap';
+import {Container} from 'reactstrap';
 import NewsFeed from './NewsFeed'
+import Banner from './Banner';
 
 
 class HomePage extends React.Component {
@@ -8,7 +9,10 @@ class HomePage extends React.Component {
     render() { 
         return ( 
             <>
+            <Container >
+            <Banner ></Banner>
                 <NewsFeed />
+                </Container>
             </>
          );
     }

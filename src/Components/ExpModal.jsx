@@ -28,15 +28,15 @@ class ExpModal extends React.Component {
 
      postExperience = async () => {
       let experience = {
-        "role": document.querySelector("#role").value,
-        "company": document.querySelector("#company").value,
-        "startDate": document.querySelector("#startDate").value,
-        "endDate": document.querySelector("#endDate").value,
-        "area": document.querySelector("#area").value,
-        "description": document.querySelector("#description").value,
-        "image": document.querySelector("#image").value
+        "role": this.state.role,//document.querySelector("#role").value,
+        "company":this.state.company,// document.querySelector("#company").value,
+        "startDate": this.state.startDate,//document.querySelector("#startDate").value,
+        "endDate": this.state.endDate,//document.querySelector("#endDate").value,
+        "area": this.state.area,//document.querySelector("#area").value,
+        "description":this.state.description,// document.querySelector("#description").value,
+        "image": this.state.image//document.querySelector("#image").value
   };
-      await PostExperience(experience)
+      // await PostExperience(experience)
       let storeExperience = await PostExperience(experience)
       this.props.parentUpdate(storeExperience)
   }
@@ -97,7 +97,7 @@ class ExpModal extends React.Component {
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={()=>this.postExperience()} >Post</Button>{' '}
-          <Button color="secondary" onClick={this.modalClose}>Cancel</Button>
+          <Button color="secondary" onClick={()=>this.parentUpdate()}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </div>

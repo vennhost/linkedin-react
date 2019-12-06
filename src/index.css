@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+/* .size{
+  width:1000px!important;
+} */
+
 .form-control {
   width: 200px;
   margin-right: 10px !important;
@@ -122,28 +126,37 @@ code {
 }
 
 
-
+.jumbo{
+  margin-top: -20px;
+}
 .profile {
   padding-top: 40px;
 }
 
-img.profile-photo{
-  margin-top: -63px;
-  height:200px;
+
+.banner{
+   margin-top: -63px;
+   height:200px;  
+}
+.profile-photo{
+  
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  margin-top: -180px;  
+ 
 }
 
 .logo {
   flex: 0 0 auto;
   margin-right: 12px;
 }
-/* img {
-  margin-top: -63px;
-  height:200px;
-} */
+
 
 .experience {
-  max-width: 800px;
-  height: 700px;
+  margin: auto;
+  max-width: 700px;
+  /* height: 700px; */
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 5px;

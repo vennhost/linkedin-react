@@ -16,12 +16,14 @@ class HomePage extends React.Component {
     render() { 
         return ( 
             <>
-            <Container className="profile mt-5">
-            {/* <Profile></Profile> */}
-            </Container>
+            {/* <Container className="profile mt-5"> */}
+            <Container>
             <Banner></Banner>
-            {/* <Profile></Profile> */}
             <Experience />
+            </Container>
+           
+           
+            
             </>
          );
     }
